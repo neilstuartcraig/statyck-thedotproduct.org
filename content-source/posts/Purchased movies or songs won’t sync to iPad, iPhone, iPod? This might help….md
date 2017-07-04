@@ -1,0 +1,5 @@
+This is a slightly random post for a web development blog but i spent a couple of hours last night trying to sync some movies i’d purchased via iTunes to my iPad and despite checking the movies in the movies pane of the iPad sync options, the movies didn’t transfer. There was no error message but the storage details didn’t change when i check or unchecked the movies in question…very odd.
+
+It turns out that the solution was surprisingly simple, the movies were checked in the movies listing in iTunes and also in the sync options for my iPad but had somehow become unchecked in the purchased listing in iTunes. Whilst this isn’t a bug, it would definitely be helpful if Apple could show an info dialogue upon syncing to explain why the movies won’t be synced. I’ll raise a ticket with Apple but I am hoping this quick post might save someone else the frustration i had.
+
+Incidentally, I believe the reason the movies were unchecked may have been that i purchased them on my iPad then deleted them off it (on the iPad itself rather than in iTunes)…just a theory

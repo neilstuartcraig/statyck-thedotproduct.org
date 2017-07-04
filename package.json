@@ -1,0 +1,25 @@
+{
+  "name": "statyck-thedotproduct.org",
+  "private": true,
+  "version": "1.0.0",
+  "description": "thedotproduct.org website files for Statyck",
+  "main": "index.js",
+  "dependencies": {
+    "statyck-theme-default": "^1.3.8",
+    "statyck-theme-tdp": "^1.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilstuartcraig/statyck-thedotproduct.org.git"
+  },
+  "author": "Neil Craig <neil.craig@thedotproduct.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neilstuartcraig/statyck-thedotproduct.org/issues"
+  },
+  "homepage": "https://github.com/neilstuartcraig/statyck-thedotproduct.org#readme"
+}

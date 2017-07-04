@@ -1,0 +1,17 @@
+{
+    "sourceDir": "node_modules/statyck-theme-tdp/theme",
+    "settings": 
+    {
+        "title": "TheDotProduct",
+        "strapline": "Web-tech nerd stuff",
+        "scheme": "https:",
+        "hostname": "thedotproduct.org",
+        "baseURI": "", 
+        "createAbsoluteHRefs": false,
+        "social":
+        {
+            "twitterURL": "https://www.twitter.com/tdp_org",
+            "githubURL": "https://www.github.com/neilstuartcraig"
+        }
+    }
+}

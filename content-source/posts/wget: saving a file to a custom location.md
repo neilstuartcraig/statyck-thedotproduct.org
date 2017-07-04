@@ -1,0 +1,8 @@
+<p>This will be a really quick post which will be obvious to unix sysadmin veterans but hopefully will be helpful to us mere mortals&#8230;</p>
+<p>wget is a linux/*nix command line tool which can download files (including entire websites if options are set correctly) and at first glance, from looking at the <a href="http://linux.die.net/man/1/wget" target="_blank">wget man page</a> you&#8217;d be forgiven for thinking there was no way to save the file wget downloads to a custom location and for multiple files, you pretty much be right (though you could pipe the output of wget to another program but that&#8217;s another story).</p>
+<p>By default, wget saves files to the current directory so if you&#8217;re writing a script which uses wget (as I did yesterday), you may want to specify a path for the file to be downloaded to. The good news is that you can do this for single files very easily using the -O (capital o) parameter which in the man page says e.g.:</p>
+<pre>wget -O /home/user1/wp.tgz http://wordpress.org/latest.tar.gz
+</pre>
+<p>This will save the latest WordPress tarball to the directory /home/user1 and call the file wp.tgz. Simple!</p>
+<p>NOTE: This only works for single files since the -O option concatenates all downloaded files into one file.</p>
+<p>See the <a href="http://linux.die.net/man/1/wget" target="_blank">wget man page</a> for further info on other options.</p>

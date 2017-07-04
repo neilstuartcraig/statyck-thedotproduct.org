@@ -1,0 +1,17 @@
+{
+    "general":
+    {
+        "outputBaseDir": "output",
+        "localServerPort": 8080 
+    },
+    "posts":
+    {   
+        "contentSourceFilenameExtension": ".md",
+        "numPostsPerIndexPage": 10
+    },
+    "pages":
+    {       
+        "contentSourceFilenameExtension": ".md",
+        "numPostsPerIndexPage": -1
+    }
+}

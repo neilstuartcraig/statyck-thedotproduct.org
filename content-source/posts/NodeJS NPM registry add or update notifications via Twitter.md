@@ -1,0 +1,7 @@
+ <p>I have been messing with <a href="http://www.nodejs.org/" target="_blank">NodeJS</a> for a little while now and contrary to my preconceptions, I quite like it. NodeJS is not the right choice for every task (as with any development paradigm/language) but it has some great use cases for i/o bound tasks and is definitely easy to use!</p>
+<p>NodeJS uses a module management system called <a href="http://www.google.co.uk/url?sa=t&amp;rct=j&amp;q=npm&amp;source=web&amp;cd=2&amp;sqi=2&amp;ved=0CFcQjBAwAQ&amp;url=http%3A%2F%2Fsearch.npmjs.org%2F&amp;ei=NgYAUODwBdDs0gWKluWbBw&amp;usg=AFQjCNFdGrO4ci05HFOytaw5WEpiL1qPsg" target="_blank">NPM</a> which makes it easy to obtain, manage and create NodeJS modules.</p>
+<p>The npm-updates module was added a little while back and it made me think, wouldn&#8217;t it be cool if I could allow people to hook into the alerts&#8230;so I threw together a very rough (and i do mean very rough) app last night and pushed it to Heroku. It seems to be running ok so if NodeJS is your thing, maybe you&#8217;ll want to take a look. I made 2 accounts in case you are only interested in either additions or updates.</p>
+<p>Twitter accounts to follow are:</p>
+<p>Additions to NPM: <a href="http://twitter.com/npmadditions" target="_blank">@npmadditions</a></p>
+<p>Updates to NPM modules: <a href="http://twitter.com/npmupdates" target="_blank">@npmupdates</a></p>
+<p>Happy noding!</p>
