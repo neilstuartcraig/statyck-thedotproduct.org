@@ -7,7 +7,7 @@
     "posts":
     {   
         "contentSourceFilenameExtension": ".md",
-        "numPostsPerIndexPage": 10
+        "numPostsPerIndexPage": 20
     },
     "pages":
     {       
