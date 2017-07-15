@@ -3,7 +3,7 @@
 BUCKET_NAME="tdp-statyck-web"
 
 # Create bucket if !exists
-gsutil mb gs://$BUCKET_NAME
+gsutil mb -l europe-west2 -c regional gs://$BUCKET_NAME 
 
 # Sync, not copy (we want to remove items from the dest which are not in src)
 gsutil -m rsync -d -r ./output/latest/ gs://$BUCKET_NAME
