@@ -104,7 +104,7 @@ resources:
           mode: READ_WRITE
           type: PERSISTENT
           initializeParams:
-            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v4
+            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v5
             diskSizeGb: 20
             diskType: pd-ssd
       serviceAccounts:
