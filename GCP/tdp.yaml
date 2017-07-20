@@ -74,15 +74,15 @@ resources:
   properties:
     description: Target pool for load balancing - TCP and UDP
     region: europe-west2
-    healthChecks:
-      - $(ref.hc-tdp.selfLink)
+    # healthChecks:
+    #   - $(ref.hc-tdp.selfLink)
 
 # instance healthcheck
-- type: compute.v1.httpHealthCheck
-  name: hc-tdp
-  properties:
-    port: 443
-    requestPath: /
+# - type: compute.v1.httpHealthCheck
+#   name: hc-tdp
+#   properties:
+#     port: 443
+#     requestPath: /
 
 # instance template 
 - type: compute.v1.instanceTemplate
@@ -104,7 +104,7 @@ resources:
           mode: READ_WRITE
           type: PERSISTENT
           initializeParams:
-            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v5
+            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v8
             diskSizeGb: 20
             diskType: pd-ssd
       serviceAccounts:
@@ -140,7 +140,7 @@ resources:
     target: $(ref.igm.selfLink)
     autoscalingPolicy:
       minNumReplicas: 1
-      maxNumReplicas: 3
+      maxNumReplicas: 1
       coolDownPeriodSec: 60
       cpuUtilization:
         utilizationTarget: 0.60

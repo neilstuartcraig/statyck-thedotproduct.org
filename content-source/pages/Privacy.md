@@ -12,7 +12,7 @@ For this reason, I've chosen to do what I reasonably can to a avoid exposing you
     * HTTP Strict Transport Security (HSTS)
     * Framing prevention (via X-Frame-Options) to help avoid e.g. click-jacking
     * Cross-Site Scripting (XSS) prevention (via X-XSS-Protection)
-    * Not leaking that you visited this website to sites I link to (via Referrer-Policy: same-origin) - only I receive "referer"
+    * Not leaking that you visited this website to sites I link to (via Referrer-Policy: same-origin) - only I receive "referer" headers
 
 ## Access logging
 I will probably make use of server-side access logging (logging web page requests to a file on the server) from time to time. These logs will never include any data which 
