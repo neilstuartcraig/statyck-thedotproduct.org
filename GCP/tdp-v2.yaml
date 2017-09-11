@@ -30,14 +30,22 @@
 #             --config config.yaml --preview
 
 
-# Firewall rules
 resources:
+# Fixed IP address which will be used by the VM
+# - type: compute.v1.address
+#   name: tdp-static-ip-v0
+#   properties:
+#     region: europe-west2
+
+# Firewall rules
 - type: compute.v1.firewall
-  name: fw-in
+  name: tdp-vm-fw-v0
   properties:
-    description: firewall - from internet to LB
+    description: Firewall (internet -> VM)
     sourceRanges:
       - 0.0.0.0/0
+    targetTags:
+      - quic
     allowed:
       - IPProtocol: TCP
         ports:
@@ -47,71 +55,24 @@ resources:
         ports:
         - 443
 
-# forwarding rule for load balancing tcp:80
-- type: compute.v1.forwardingRule
-  name: fwd-tcp-80
-  properties:
-    description: Forwarding rule for load balancing - TCP 80
-    region: europe-west2
-    target: $(ref.tp.selfLink)
-    loadBalancingScheme: EXTERNAL 
-    IPProtocol: TCP
-    portRange: 80
-    IPAddress: $(ref.static-ip.selfLink)
-
-# forwarding rule for load balancing tcp:443
-- type: compute.v1.forwardingRule
-  name: fwd-tcp-443
-  properties:
-    description: Forwarding rule for load balancing - TCP 443
-    region: europe-west2
-    target: $(ref.tp.selfLink)
-    loadBalancingScheme: EXTERNAL
-    IPProtocol: TCP
-    portRange: 443
-    IPAddress: $(ref.static-ip.selfLink)
-
-# forwarding rule for load balancing udp:443
-- type: compute.v1.forwardingRule
-  name: fwd-udp-443
-  properties:
-    description: Forwarding rule for load balancing - UDP 443
-    region: europe-west2
-    target: $(ref.tp.selfLink)
-    loadBalancingScheme: EXTERNAL
-    IPProtocol: UDP
-    portRange: 443
-    IPAddress: $(ref.static-ip.selfLink)
-
-# target pool - this is an LB front-end
-- type: compute.v1.targetPool
-  name: tp
-  properties:
-    description: Target pool for load balancing - TCP and UDP
-    region: europe-west2
-    # healthChecks:
-    #   - $(ref.hc-tdp.selfLink)
-
-# instance healthcheck
-# - type: compute.v1.httpHealthCheck
-#   name: hc-tdp
-#   properties:
-#     port: 443
-#     requestPath: /
-
 # instance template 
 - type: compute.v1.instanceTemplate
-  name: it
+  name: tdp-it-v0
   properties:
     properties:
       description: "Instance template"
       machineType: f1-micro
       canIpForward: false
+      tags:
+        items:
+          - quic
       networkInterfaces:
         - network: https://www.googleapis.com/compute/v1/projects/proud-limiter-136618/global/networks/default
           accessConfigs:
-          - name: external-nat
-            type: ONE_TO_ONE_NAT
+            - kind: compute#accessConfig
+              name: ext-ip
+              # natIP: $(ref.tdp-static-ip-v0.selfLink)
+              type: ONE_TO_ONE_NAT
       disks:
         - deviceName: boot
           boot: true
@@ -119,7 +80,7 @@ resources:
           mode: READ_WRITE
           type: PERSISTENT
           initializeParams:
-            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v8
+            sourceImage: projects/proud-limiter-136618/global/images/thedotproduct-web-v11
             diskSizeGb: 20
             diskType: pd-ssd
       serviceAccounts:
@@ -127,15 +88,14 @@ resources:
           scopes:
             - https://www.googleapis.com/auth/devstorage.read_only
 
-
-# Instance group manager - manages the instances
+# Instance group manager - manages the instances WRT the ASG
 - type: compute.v1.instanceGroupManager
-  name: igm
+  name: tdp-igm-v0
   properties:
     zone: europe-west2-b
     description: "Just a simple instance group manager for the service" 
-    baseInstanceName: "tdp"
-    instanceTemplate: $(ref.it.selfLink)
+    baseInstanceName: "tdp-v0"
+    instanceTemplate: $(ref.tdp-it-v0.selfLink)
     namedPorts:
       - name: http
         port: 80
@@ -143,25 +103,17 @@ resources:
         port: 443
     network: https://www.googleapis.com/compute/v1/projects/proud-limiter-136618/global/networks/default
     targetSize: 1
-    targetPools:
-      - $(ref.tp.selfLink)
 
 # Autoscaling config
 - type: compute.v1.autoscaler
-  name: as
+  name: tdp-as-v0
   properties:
     zone: europe-west2-b
     description: "Just a simple AS for the service"
-    target: $(ref.igm.selfLink)
+    target: $(ref.tdp-igm-v0.selfLink)
     autoscalingPolicy:
       minNumReplicas: 1
       maxNumReplicas: 1
       coolDownPeriodSec: 60
       cpuUtilization:
         utilizationTarget: 0.60
-
-# Fixed IP address which will be used by all forwarding rules
-- type: compute.v1.address
-  name: static-ip
-  properties:
-    region: europe-west2
