@@ -8,7 +8,7 @@ Some of the tech I work with regularly includes:
 * [Google Cloud Platform](https://cloud.google.com/)
 * Git ([Github](https:www.github.com))
 * [NPM](https://www.npmjs.com)
-* [Node](https://www.nodejs.org) - in a [functional](https://en.wikipedia.org/wiki/Functional_programming)(ish, i really dislike OO & state) style
+* [Node](https://www.nodejs.org) - in a [functional](https://en.wikipedia.org/wiki/Functional_programming) (ish, i really dislike OO & state) style
 * [VSCode](https://code.visualstudio.com/)
 * [Travis](https://travis-ci.org/) CI
 * [NGINX](https://nginx.org)
