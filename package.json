@@ -1,7 +1,7 @@
 {
   "name": "statyck-thedotproduct.org",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "thedotproduct.org website files for Statyck",
   "main": "index.js",
   "dependencies": {
