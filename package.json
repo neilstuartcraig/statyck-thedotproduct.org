@@ -2,7 +2,7 @@
   "name": "statyck-thedotproduct.org",
   "private": true,
   "version": "1.0.3",
-  "description": "thedotproduct.org website files for Statyck",
+  "description": "thedotproduct.org website files for Statyck website",
   "main": "index.js",
   "dependencies": {
     "fs-extra": "^3.0.1",
