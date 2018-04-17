@@ -1,6 +1,6 @@
 # About
 
-Hello, I'm Neil Craig and I work at the [BBC](https://www.bbc.co.uk/) as a Senior Technical Architect in the Technical Architecture team within the Online Technology Group (OTG). OTG is responsible for many of the shared services of BBC Online such as DNS, traffic management, CDN's and media distribution. We work on some pretty high-traffic services. The team I work in also provides technical consultancy to many of the other teams throughout BBC online.
+Hello, I'm Neil Craig and I work at the [BBC](https://www.bbc.co.uk/) as Lead Technical Architect in the Online Technology Group (OTG). OTG is responsible for many of the shared services of BBC Online such as DNS, traffic management, CDN's and media distribution. We work on some pretty high-traffic services. The team I work in also provides technical consultancy to many of the other teams throughout BBC online.
 
 Some of the tech I work with regularly includes:
 
