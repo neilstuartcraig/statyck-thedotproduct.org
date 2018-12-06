@@ -1,0 +1,1 @@
+This file just forces git to include the assets dir in SC
