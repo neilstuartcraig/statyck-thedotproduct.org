@@ -1,1 +1,0 @@
-*/15 8-23 * * * neil /usr/bin/flock -n /bin/bash /home/neil/tdp/tdp-server-side-sync.sh
